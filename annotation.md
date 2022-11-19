@@ -39,6 +39,8 @@ The annottation symbols are as follow:
 
 __Any lines of code that do not fall in between a opened and closed annotation will be treated as an individual tuple consisting of solely that line.__  
 
+__NESTED ANNOTATION should not be done, a tuple cannot be nested inside of another tuple__
+
 Comments that are written for problem generation __will not__ be included in the created problems.  
 
 
@@ -64,4 +66,4 @@ int main(){
 }
 // END}
 ```  
-If this file is used to generate Parson's Problems using PPALMS, all generated problems will ave the same 5 first lines (line 2-6 in original code) and the same 2 last lines (line 14-15 in original code). The remaining lines which are not annotation will be shuffled around. However line 9 and 10 in the original code will always be together in that order.  
+If this file is used to generate Parson's Problems using PPALMS, all generated problems will ave the same 5 first lines (line 2-6 in original code) and the same 2 last lines (line 14-15 in original code). The remaining lines which are not annotation will be shuffled around. However line 9 and 10 in the original code will always be together in that order. Line 12, 13 along with that line tuple will be shuffled around.  

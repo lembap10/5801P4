@@ -66,12 +66,12 @@ vector<bool> ParsedCode::getIgnores(){
 void ParsedCode::print(){
     cout << "Total Number of tuples: " << numLines << endl;
     for (int i = 0; i < numLines; i++){
-        cout << i << ": " << endl;
+        cout << i+1 << ": ";
         if (ignored[i]){
-            cout << "line should be ignored when creating problens" << endl; 
+            cout << "IGNORE" << endl; 
         }
         else {
-            cout << "line should not be ignored when creating a problem" << endl;
+            cout << "DO NOT IGNORE" << endl;
         }
         cout << lines[i] << endl;
     }

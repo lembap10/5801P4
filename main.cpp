@@ -2,7 +2,13 @@
 using namespace std;
 
 int main(){
-    ParsedCode code;
+    ParsedCode* code;
     DefaultCodeParser parser;
-    parser.ParseCode("srcFiles/test.cpp");
+    code = parser.ParseCode("srcFiles/test.cpp");
+    if (code == NULL){
+        cout << "Error while parsing" << endl;
+    }
+    else {
+        code->print();
+    }
 }
