@@ -10,6 +10,24 @@ using namespace std;
  */
 ParsedCode* DefaultCodeParser::ParseCode(string file){
     ParsedCode* returnedCode = new ParsedCode();
+    fileName = file;
+
+    // Verify file type is allowed
+    string fileType = fileName.substr(fileName.find(".") + 1, fileName.length());
+    if (fileType != "cpp" || fileType != "c" || fileType != "cc" || fileType != "cs" || fileType != "h" || fileType != "java" || fileType != "py" || fileType != "js" ){
+        cout << "Error: Invalid file type" << endl;
+        return NULL;
+    }
+
+    string commentSymbol = "";
+
+    // Find the needed commentSymbol for this file type
+    if (fileType == "cpp" || fileType == "c" || fileType == "cc" || fileType == "cs" || fileType == "h" || fileType == "java"|| fileType == "js" ){
+        commentSymbol = "//";
+    }
+    else if (fileType == "py"){
+        commentSymbol = "#";
+    }
 
     // Open and verify file is open
     srcCode.open(file);

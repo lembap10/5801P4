@@ -7,11 +7,11 @@ class Parser {
     protected: 
         ifstream srcCode;
         ParsedCode codeRep;
-        string filename;
+        string fileName;
     public:
         Parser() {
             codeRep = ParsedCode();
-            filename = "";
+            fileName = "";
         };
         virtual ParsedCode *ParseCode(string file) = 0;
 };
