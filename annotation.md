@@ -37,7 +37,7 @@ The annottation symbols are as follow:
     - Used to indicate the start of a tuple of lines  
     - In the context of Parson's Problem, these tuples will retain the same order of lines within themselves, but different tuples will be rearranged  
 
-__Any lines of code that do not fall in between a opened and closed annotation will be treated as an individual tuple consisting of solely that line. __  
+__Any lines of code that do not fall in between a opened and closed annotation will be treated as an individual tuple consisting of solely that line.__  
 
 Comments that are written for problem generation __will not__ be included in the created problems.  
 
