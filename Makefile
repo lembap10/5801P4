@@ -1,10 +1,2 @@
-CC=g++
-CFLAGS=-I.
-DEPS = ParsedCode.h
-OBJ = main.cpp 
-
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-ppalms: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+hellomake: main.cpp include/ParsedCode.h include/DefaultCodeParser.h include/Parser.h src/DefaultCodeParser.cc src/ParsedCode.cc
+	g++ -o ppalms main.cpp include/ParsedCode.h include/DefaultCodeParser.h include/Parser.h src/DefaultCodeParser.cc src/ParsedCode.cc

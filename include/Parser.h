@@ -4,11 +4,14 @@
 using namespace std;
 
 class Parser {
-    private: 
+    protected: 
         ifstream srcCode;
         ParsedCode codeRep;
         string filename;
     public:
-        Parser();
-        virtual ParseCode(string filename) = 0;
+        Parser() {
+            codeRep = ParsedCode();
+            filename = "";
+        };
+        virtual ParsedCode *ParseCode(string file) = 0;
 };
