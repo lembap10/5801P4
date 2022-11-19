@@ -19,11 +19,17 @@ space and tabs are permitted prior to comment symbol, and one and only one space
 
 The annottation symbols are as follow:  
 - ```{START```  
-- ```START}```
+    - Used to indicate the start of a block that should remain at the start of code
+- ```START}```  
+    - Used to indicate the end of a block that should remain at the start of code
 - ```{END```
+    - Used to indicate the start of a block that should remain at the end of code
 - ```END}```
+    - Used to indicate the end of a block that should remain at the start of code
 - ```{*```
+    - Used to indicate the start of a tuple of lines  
 - ```*}```
+    - Used to indicate the start of a tuple of lines  
 
 Comments that are written for problem generation __will not__ be included in the created problems.  
 
