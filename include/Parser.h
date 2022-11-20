@@ -6,12 +6,15 @@ using namespace std;
 class Parser {
     protected: 
         ifstream srcCode;
-        ParsedCode codeRep;
+        ParsedCode *codeRep;
         string fileName;
     public:
         Parser() {
-            codeRep = ParsedCode();
+            codeRep = NULL;
             fileName = "";
         };
         virtual ParsedCode *ParseCode(string file) = 0;
+        ~Parser(){
+            delete codeRep;
+        }
 };

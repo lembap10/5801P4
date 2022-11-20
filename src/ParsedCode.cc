@@ -28,6 +28,9 @@ void ParsedCode::AddCodeTuple (string line, bool ignore){
  * @param tupleNum tuple to remove
  */
 void ParsedCode::RemoveCodeTuple (int tupleNum){
+    if (tupleNum < 0 || tupleNum >= numLines){
+        return;
+    }
     lines.erase(lines.begin() + tupleNum);
     ignored.erase(ignored.begin() + tupleNum);
     numLines--;

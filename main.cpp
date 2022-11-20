@@ -1,4 +1,5 @@
 #include "include/DefaultCodeParser.h"
+#include <sstream>
 using namespace std;
 
 // Highly Advanced Lembap Testing Software
@@ -89,14 +90,14 @@ int main(){
 
     test_equivalence(&code1, &code2, "ParsedCode", "Testing adding and removing 1 line of code");
 
-    // cout << "Enter file name to test: " ;
-    // string fileName;
-    // cin >> fileName;
-    // code = parser.ParseCode("srcFiles/" + fileName);
-    // if (code == NULL){
-    //     cout << "Error while parsing" << endl;
-    // }
-    // else {
-    //     code->print();
-    // }
+    cout << "Enter file name to test: " ;
+    string fileName;
+    cin >> fileName;
+    code = parser.ParseCode("srcFiles/" + fileName);
+    if (code == NULL){
+        cout << "Error while parsing" << endl;
+    }
+    else {
+        code->print();
+    }
 }
