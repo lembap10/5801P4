@@ -1,6 +1,7 @@
 #include "include/DefaultCodeParser.h"
 using namespace std;
 
+// Highly Advanced Lembap Testing Software
 void test_equivalence(void* actual, void* expected, string type, string testName){
     if (type == "string"){
         string actual_val = *(string*)actual;
