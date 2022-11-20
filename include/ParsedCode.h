@@ -17,4 +17,9 @@ class ParsedCode{
         int getNumTuples();
         vector<bool> getIgnores();
         void print();
+        // OVERLOADED OPERATOR TO TEST EQUIVALENCE
+        // for testing purposes only
+        bool operator== (ParsedCode code){
+            return (this->numLines == code.numLines && this->lines == code.lines && this->ignored == code.ignored);
+        }
 };

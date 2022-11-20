@@ -30,6 +30,7 @@ void ParsedCode::AddCodeTuple (string line, bool ignore){
 void ParsedCode::RemoveCodeTuple (int tupleNum){
     lines.erase(lines.begin() + tupleNum);
     ignored.erase(ignored.begin() + tupleNum);
+    numLines--;
 }
 
 /**
