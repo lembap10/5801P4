@@ -1,3 +1,6 @@
+#ifndef PARSER_H
+#define PARSER_H
+
 #include "ParsedCode.h"
 #include <fstream>
 
@@ -18,3 +21,4 @@ class Parser {
             delete codeRep;
         }
 };
+#endif

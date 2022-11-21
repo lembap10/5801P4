@@ -54,14 +54,14 @@ void test_equivalence(void* actual, void* expected, string type, string testName
     //         cout << "TEST FAILED : " << testName << endl; 
     //     }
     // }
-    // else if (type == "ParsedCode"){
-    //     ParsedCode actual_val = *(ParsedCode*)actual;
-    //     ParsedCode expected_val = *(ParsedCode*)expected;
-    //     if (actual_val == expected_val){
-    //         cout << "TEST PASSED : " << testName << endl; 
-    //     }
-    //     else {
-    //         cout << "TEST FAILED : " << testName << endl; 
-    //     }
-    // }
+    else if (type == "ParsedCode"){
+        ParsedCode actual_val = *(ParsedCode*)actual;
+        ParsedCode expected_val = *(ParsedCode*)expected;
+        if (actual_val == expected_val){
+            cout << "TEST PASSED : " << testName << endl; 
+        }
+        else {
+            cout << "TEST FAILED : " << testName << endl; 
+        }
+    }
 }

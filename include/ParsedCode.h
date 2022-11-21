@@ -1,3 +1,6 @@
+#ifndef PARSEDCODE_H
+#define PARSEDCODE_H
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,3 +26,4 @@ class ParsedCode{
             return (this->numLines == code.numLines && this->lines == code.lines && this->ignored == code.ignored);
         }
 };
+#endif
