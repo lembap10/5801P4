@@ -12,6 +12,12 @@ Then, run:
 ```
 _for now executes whatever is in main_
 
+## Run Tests  
+
+```
+g++ -o tests testing/* include/* src/*
+```
+
 ### Conditions to parse code  
  - The source code should be place in the srcFiles directory  
 
