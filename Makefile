@@ -1,2 +1,0 @@
-hellomake: main.cpp include/ParsedCode.h include/DefaultCodeParser.h include/Parser.h src/DefaultCodeParser.cc src/ParsedCode.cc
-	g++ -o ppalms main.cpp include/ParsedCode.h include/DefaultCodeParser.h include/Parser.h src/DefaultCodeParser.cc src/ParsedCode.cc
