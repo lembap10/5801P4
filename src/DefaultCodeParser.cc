@@ -10,10 +10,10 @@ const string END_TUPLE = "*}";
 const string END_ENDBLOCK = "END}";
 
 /**
- * @brief Parses code for annotation in (format in annotation.md)
+ * @brief Function to create a ParsedCode Object from a source-code file
  * 
- * @param file 
- * @return *ParsedCode representation of the file, or NULL on error
+ * @param file a string representing the file name of the code to parse
+ * @return ParsedCode* the populated ParsedCode object made from the file
  */
 ParsedCode* DefaultCodeParser::ParseCode(string file){
 

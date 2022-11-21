@@ -1,7 +1,7 @@
 #include "../include/ParsedCode.h"
 using namespace std;
 /**
- * @brief Construct a new Parsed Code:: Parsed Code object
+ * @brief Default Constructor, initializes both vector attributes and numLines to 0
  * 
  */
 ParsedCode::ParsedCode(){
@@ -17,6 +17,7 @@ ParsedCode::ParsedCode(){
  * @param ignore should this line be ignored
  */
 void ParsedCode::AddCodeTuple (string line, bool ignore){
+    // Push the line to the vector, and the ignore val, add 1 to the size
     lines.push_back(line);
     numLines++;
     ignored.push_back(ignore);
@@ -39,7 +40,7 @@ void ParsedCode::RemoveCodeTuple (int tupleNum){
 /**
  * @brief gives the vector of lines
  * 
- * @return vector<string> 
+ * @return vector<string> value of lines 
  */
 vector<string> ParsedCode::getLines(){
     return lines;
@@ -48,7 +49,7 @@ vector<string> ParsedCode::getLines(){
 /**
  * @brief gives the number of tuples
  * 
- * @return int 
+ * @return int value of numLines 
  */
 int ParsedCode::getNumTuples(){
     return numLines;
@@ -65,7 +66,7 @@ vector<bool> ParsedCode::getIgnores(){
 
 /**
  * @brief Debugging function to print the representation of the parsed code
- * 
+ * prints out all information to verify the parsed code
  */
 void ParsedCode::print(){
     cout << "Total Number of tuples: " << numLines << endl;
