@@ -1,4 +1,7 @@
 #include "tester.h"
+#include <string>   // std::string
+#include <iostream> // std::cout
+#include <sstream>  // std::stringstream
 
 using namespace std;
 
@@ -14,9 +17,9 @@ void testConstructor(){
     vector<bool> ignoredLines;
     ignoredLines = parser.getIgnores();
     vector<bool> expectediglines;
-    test_equivalence(&numLines, &expectedLines, "int", "ConstructorTestnumLines");
-    test_equivalence(&reglines, &expectedreglines, "vector<string>", "ConstructorTestregvector");
-    test_equivalence(&ignoredLines, &expectediglines, "vector<bool>", "ConstructorTestignoredvector");
+    test_equivalence(&numLines, &expectedLines, "int", "PC200");
+    test_equivalence(&reglines, &expectedreglines, "vector<string>", "PC201");
+    test_equivalence(&ignoredLines, &expectediglines, "vector<bool>", "PC202");
 }
 
 void testgetNumTuples(){
@@ -26,11 +29,11 @@ void testgetNumTuples(){
     numLines = parser.getNumTuples();
     int expectedLines;
     expectedLines = 1;
-    test_equivalence(&numLines, &expectedLines, "int", "ConstructorTestGetNumLines");
+    test_equivalence(&numLines, &expectedLines, "int", "PC203");
     parser.RemoveCodeTuple(0);
     numLines = parser.getNumTuples();
     expectedLines = 0;
-    test_equivalence(&numLines, &expectedLines, "int", "ConstructorTestGetnumLinesnone");
+    test_equivalence(&numLines, &expectedLines, "int", "PC204");
 }
 
 void testgetlines(){
@@ -39,32 +42,101 @@ void testgetlines(){
     vector<string> reglines;
     reglines = parser.getLines();
     vector<string> expectedLines {"aaa"};
-    test_equivalence(&reglines, &expectedLines, "vector<string>", "ConstructorTestGetStringVector");
+    test_equivalence(&reglines, &expectedLines, "vector<string>", "PC205");
     parser.RemoveCodeTuple(0);
     vector<string> reglines1 = parser.getLines();
     vector<string> expectedLines1;
-    test_equivalence(&reglines1, &expectedLines1, "vector<string>", "ConstructorTestGetStringVectornone");
+    test_equivalence(&reglines1, &expectedLines1, "vector<string>", "PC206");
 }
 
 void testgetbool(){
     ParsedCode parser = ParsedCode();
     parser.AddCodeTuple("aaa", false);
+    parser.AddCodeTuple("aaa", true);
     vector<bool> reglines;
     reglines = parser.getIgnores();
-    vector<bool> expectedLines {false};
-    test_equivalence(&reglines, &expectedLines, "vector<bool>", "ConstructorTestGetBoolVector");
+    vector<bool> expectedLines {false, true};
+    test_equivalence(&reglines, &expectedLines, "vector<bool>", "PC207");
+    parser.RemoveCodeTuple(0);
     parser.RemoveCodeTuple(0);
     vector<bool> reglines1 = parser.getIgnores();
     vector<bool> expectedLines1;
-    test_equivalence(&reglines1, &expectedLines1, "vector<bool>", "ConstructorTestGetBoolVectornone");
+    test_equivalence(&reglines1, &expectedLines1, "vector<bool>", "PC208");
 }
 
+void trickyAnnotationDefaultParserTest(){
+    DefaultCodeParser defaultParser;
+    ParsedCode *code;
+    code = defaultParser.ParseCode("srcFiles/trickyAnnotation.cpp");
+    vector<string> a = code->getLines();
+    // cout << "{";
+    // for(int i=0; i < a.size(); i++){
+    //     cout << a.at(i);
+    //     cout << ",";
+    // }
+    // cout << "}\n";
+    vector<string> expectedVec = {"// This is a test file for testing PPALMS Program\n#include <iostream>\nusing namespace std;\nint main(){\n","","","","    int x = 0;\n    int y = 0;\n","","","    int z = x + y;\n","    cout << z;\n","    return z;\n}\n"};
+    test_equivalence(&a, &expectedVec, "vector<string>", "DCP212");
+    vector<bool> b = code->getIgnores();
+    vector<bool> expectedBool = {1,0,0,0,0,0,0,0,0,1};
+    test_equivalence(&b, &expectedBool, "vector<bool>", "DCP213");
+    // cout << "{";
+    // for(int i=0; i < b.size(); i++){
+    //     cout << b.at(i);
+    //     cout << ",";
+    // }
+    // cout << "}\n";
+
+}
+
+void missingBlockAnnotationDefaultParserTest(){
+    DefaultCodeParser defaultParser;
+    ParsedCode *code1;
+    code1 = defaultParser.ParseCode("srcFiles/trickyAnnotationOneBlock.cpp");
+    stringstream buffer;
+    streambuf* prevcoutbuf = cout.rdbuf(buffer.rdbuf());
+    code1->print();
+    cout.rdbuf(prevcoutbuf);
+    string actual = buffer.str();
+
+    string expect = "Error: Unmatched Annotations";
+    test_equivalence(&actual, &expect, "string", "DCP 211");
+
+}
+
+void NoAnnotationDefaultParserTest(){
+    DefaultCodeParser defaultParser;
+    ParsedCode *code;
+    code = defaultParser.ParseCode("srcFiles/noannotations.cpp");
+    vector<string> a = code->getLines();
+    // cout << "{";
+    // for(int i=0; i < a.size(); i++){
+    //     cout << a.at(i);
+    //     cout << ",";
+    // }
+    // cout << "}\n";
+    vector<string> expectedVec = {"#include <iostream>\n","using namespace std;\n","","int main(){\n","    int x = 0;\n","    int y = 0;\n","    int z = x + y;\n","    cout << z;\n","    return z;\n","}\n"};
+    test_equivalence(&a, &expectedVec, "vector<string>", "DCP212");
+    vector<bool> b = code->getIgnores();
+    vector<bool> expectedBool = {0,0,0,0,0,0,0,0,0,0};
+    test_equivalence(&b, &expectedBool, "vector<bool>", "DCP213");
+    // cout << "{";
+    // for(int i=0; i < b.size(); i++){
+    //     cout << b.at(i);
+    //     cout << ",";
+    // }
+    // cout << "}\n";
+
+}
 
 void YXTests(){
     testConstructor();
     testgetNumTuples();
     testgetlines();
     testgetbool();
+    trickyAnnotationDefaultParserTest();
+    missingBlockAnnotationDefaultParserTest();
+    NoAnnotationDefaultParserTest();
 }
 
 
