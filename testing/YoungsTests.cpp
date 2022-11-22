@@ -69,23 +69,11 @@ void trickyAnnotationDefaultParserTest(){
     ParsedCode *code;
     code = defaultParser.ParseCode("srcFiles/trickyAnnotation.cpp");
     vector<string> a = code->getLines();
-    // cout << "{";
-    // for(int i=0; i < a.size(); i++){
-    //     cout << a.at(i);
-    //     cout << ",";
-    // }
-    // cout << "}\n";
     vector<string> expectedVec = {"// This is a test file for testing PPALMS Program\n#include <iostream>\nusing namespace std;\nint main(){\n","","","","    int x = 0;\n    int y = 0;\n","","","    int z = x + y;\n","    cout << z;\n","    return z;\n}\n"};
-    test_equivalence(&a, &expectedVec, "vector<string>", "DCP212");
+    test_equivalence(&a, &expectedVec, "vector<string>", "DCP209");
     vector<bool> b = code->getIgnores();
     vector<bool> expectedBool = {1,0,0,0,0,0,0,0,0,1};
-    test_equivalence(&b, &expectedBool, "vector<bool>", "DCP213");
-    // cout << "{";
-    // for(int i=0; i < b.size(); i++){
-    //     cout << b.at(i);
-    //     cout << ",";
-    // }
-    // cout << "}\n";
+    test_equivalence(&b, &expectedBool, "vector<bool>", "DCP210");
 
 }
 
@@ -100,7 +88,7 @@ void missingBlockAnnotationDefaultParserTest(){
     string actual = buffer.str();
 
     string expect = "Error: Unmatched Annotations";
-    test_equivalence(&actual, &expect, "string", "DCP 211");
+    test_equivalence(&actual, &expect, "string", "DCP211");
 
 }
 
@@ -109,23 +97,11 @@ void NoAnnotationDefaultParserTest(){
     ParsedCode *code;
     code = defaultParser.ParseCode("srcFiles/noannotations.cpp");
     vector<string> a = code->getLines();
-    // cout << "{";
-    // for(int i=0; i < a.size(); i++){
-    //     cout << a.at(i);
-    //     cout << ",";
-    // }
-    // cout << "}\n";
     vector<string> expectedVec = {"#include <iostream>\n","using namespace std;\n","","int main(){\n","    int x = 0;\n","    int y = 0;\n","    int z = x + y;\n","    cout << z;\n","    return z;\n","}\n"};
     test_equivalence(&a, &expectedVec, "vector<string>", "DCP212");
     vector<bool> b = code->getIgnores();
     vector<bool> expectedBool = {0,0,0,0,0,0,0,0,0,0};
     test_equivalence(&b, &expectedBool, "vector<bool>", "DCP213");
-    // cout << "{";
-    // for(int i=0; i < b.size(); i++){
-    //     cout << b.at(i);
-    //     cout << ",";
-    // }
-    // cout << "}\n";
 
 }
 
