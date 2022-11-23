@@ -10,4 +10,5 @@ def main():
     z = x + y
     print(z)
     # {END
+    return 0
 # END}

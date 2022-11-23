@@ -13,7 +13,7 @@ namespace test
       int y = 0;
       // *}
       int z = x + y;
-      Console.WriteLine(z); 
+      Console.WriteLine(z);
       // {END
     }
   }

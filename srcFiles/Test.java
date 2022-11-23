@@ -3,7 +3,7 @@ package srcFiles;
 // This is a test file for testing PPALMS Program 
 public class Test{
     public static void main(String[] args){
-    // {START
+    // START}
     // {*
     int x = 0;
     int y = 0;

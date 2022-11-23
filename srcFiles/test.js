@@ -8,7 +8,8 @@ Test.main = (args) => {
   let y = 0;
   // *}
   let z = x + y;
-  System.out.println(z);
+  console.log(z);
   // {END
+  return z;
 };
 // END}
