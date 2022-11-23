@@ -130,7 +130,7 @@ void wrongOrderAnnotationTest()
     vector<string> expect = {"//This is a test file for testing PPALMS Program\n#include <iostream>\nusing namespace std;\n\nint main(){\n", "    int x = 0;\n    int y = 0;\n", "    int z = x + y;\n", "    cout << z;\n", "    return z;\n}\n"};
     vector<string> actual = code->getLines();
 
-    test_equivalence(&actual, &expect, "vector<string>", "PC316: Annotation of wrong order: String");
+    test_equivalence(&actual, &expect, "vector<string>", "DCP316: Annotation of wrong order: String");
 }
 
 void wrongFileType()
@@ -144,7 +144,7 @@ void wrongFileType()
 
     vector<string> actual = code->getLines();
 
-    test_equivalence(&actual, &expect, "vector<string>", "PC317: Wrong File type: String");
+    test_equivalence(&actual, &expect, "vector<string>", "DCP317: Wrong File type: String");
 }
 
 void YYTests()
