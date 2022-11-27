@@ -14,14 +14,24 @@ int main(){
     cout << "Enter the name of the file (stored in srcFiles directory) to be parsed: ";
     cin >> fileName ;
 
+    cout << "Parsing code..." << endl;
+
     // Parse the file and store the parsedCode in code
     code = parser.ParseCode("srcFiles/"+fileName);
+
     // verify file existence
     if (code == NULL){
         cout << "Invalid file inputted" << endl;
     }
-    // Print code
-    else
+
+    char yorn;
+    cout << "Do you want to print the parsed code representation? (y/n): ";
+    cin >> yorn;
+    if (yorn == 'y' or == 'Y'){
         code->print();
-    
+    }
+    else {
+        cout << "Code representation stored in variable code. " << endl;
+    }
+    return 0; 
 }
