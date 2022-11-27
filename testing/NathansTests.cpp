@@ -68,10 +68,10 @@ void ParsedCodeTest(){
     string expect = "Error: Invalid file type\n";
 
     if(code == NULL && actual == expect){
-        cout << "TEST PASSED : DCP110: Parsing invalid file type with correct annotation" << endl;
+        cout << "  TEST PASSED : DCP110: Parsing invalid file type with correct annotation" << endl;
     }
     else{
-        cout << "TEST FAILED : DCP110: Parsing invalid file type with correct annotation" << endl;
+        cout << "X TEST FAILED : DCP110: Parsing invalid file type with correct annotation" << endl;
     }
     
     // Test for java file
@@ -219,28 +219,28 @@ void ParsedCodeTest(){
     // Test for empty file
     code = parser.ParseCode("srcFiles/empty.java");
     if(code == NULL){
-        cout << "TEST PASSED : DCP119: Parsing an empty file" << endl;
+        cout << "  TEST PASSED : DCP119: Parsing an empty file" << endl;
     }
     else{
-        cout << "TEST FAILED : DCP119: Parsing an empty file" << endl;
+        cout << "X TEST FAILED : DCP119: Parsing an empty file" << endl;
     }
 
     // Test for non existent file
     code = parser.ParseCode("srcFiles/nonExistent.java");
     if(code == NULL){
-        cout << "TEST PASSED : DCP120: Parsing a non existent file" << endl;
+        cout << "  TEST PASSED : DCP120: Parsing a non existent file" << endl;
     }
     else{
-        cout << "TEST FAILED : DCP120: Parsing a non existent file" << endl;
+        cout << "X TEST FAILED : DCP120: Parsing a non existent file" << endl;
     }
 
     // Test for one-line file
     code = parser.ParseCode("srcFiles/oneLine.py");
     if(code == NULL){
-        cout << "TEST PASSED : DCP121: Parsing an one-line file" << endl;
+        cout << "  TEST PASSED : DCP121: Parsing an one-line file" << endl;
     }
     else{
-        cout << "TEST FAILED : DCP121: Parsing an one-line file" << endl;
+        cout << "X TEST FAILED : DCP121: Parsing an one-line file" << endl;
     }
 
 }

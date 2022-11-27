@@ -3,5 +3,5 @@
 using namespace std;
 
 void BLTests(){
-    cout << "Begin BL TESTs" << endl;
+    
 }

@@ -3,6 +3,9 @@
 
 using namespace std;
 
+const string PASSED = "  TEST PASSED : ";
+const string FAILED = "X TEST FAILED : ";
+
 void test_equivalence(void *actual, void *expected, string type, string testName)
 {
     if (type == "string")
@@ -11,11 +14,11 @@ void test_equivalence(void *actual, void *expected, string type, string testName
         string expected_val = *(string *)expected;
         if (actual_val == expected_val)
         {
-            cout << "TEST PASSED : " << testName << endl;
+            cout << PASSED << testName << endl;
         }
         else
         {
-            cout << "TEST FAILED : " << testName << endl;
+            cout << FAILED << testName << endl;
         }
     }
     else if (type == "vector<string>")
@@ -24,11 +27,11 @@ void test_equivalence(void *actual, void *expected, string type, string testName
         vector<string> expected_val = *(vector<string> *)expected;
         if (actual_val == expected_val)
         {
-            cout << "TEST PASSED : " << testName << endl;
+            cout << PASSED << testName << endl;
         }
         else
         {
-            cout << "TEST FAILED : " << testName << endl;
+            cout << FAILED << testName << endl;
         }
     }
     else if (type == "vector<bool>")
@@ -37,11 +40,11 @@ void test_equivalence(void *actual, void *expected, string type, string testName
         vector<bool> expected_val = *(vector<bool> *)expected;
         if (actual_val == expected_val)
         {
-            cout << "TEST PASSED : " << testName << endl;
+            cout << PASSED << testName << endl;
         }
         else
         {
-            cout << "TEST FAILED : " << testName << endl;
+            cout << FAILED << testName << endl;
         }
     }
     else if (type == "bool")
@@ -50,11 +53,11 @@ void test_equivalence(void *actual, void *expected, string type, string testName
         bool expected_val = *(bool *)expected;
         if (actual_val == expected_val)
         {
-            cout << "TEST PASSED : " << testName << endl;
+            cout << PASSED << testName << endl;
         }
         else
         {
-            cout << "TEST FAILED : " << testName << endl;
+            cout << FAILED << testName << endl;
         }
     }
     else if (type == "int")
@@ -63,34 +66,24 @@ void test_equivalence(void *actual, void *expected, string type, string testName
         int expected_val = *(int *)expected;
         if (actual_val == expected_val)
         {
-            cout << "TEST PASSED : " << testName << endl;
+            cout << PASSED << testName << endl;
         }
         else
         {
-            cout << "TEST FAILED : " << testName << endl;
+            cout << FAILED << testName << endl;
         }
     }
-    // else if (type == "DefaultCodeParser"){
-    //     DefaultCodeParser actual_val = *(DefaultCodeParser*)actual;
-    //     DefaultCodeParser expected_val = *(DefaultCodeParser*)expected;
-    //     if (actual_val == expected_val){
-    //         cout << "TEST PASSED : " << testName << endl;
-    //     }
-    //     else {
-    //         cout << "TEST FAILED : " << testName << endl;
-    //     }
-    // }
     else if (type == "ParsedCode")
     {
         ParsedCode actual_val = *(ParsedCode *)actual;
         ParsedCode expected_val = *(ParsedCode *)expected;
         if (actual_val == expected_val)
         {
-            cout << "TEST PASSED : " << testName << endl;
+            cout << PASSED << testName << endl;
         }
         else
         {
-            cout << "TEST FAILED : " << testName << endl;
+            cout << FAILED << testName << endl;
         }
     }
 }
