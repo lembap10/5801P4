@@ -3,6 +3,10 @@
 ## Project Overiew  
 This is version 0.1 of the PPALMS proect. This covers the annotation parsing portion of this application using the classes ParsedCode, Parser and DefaultCodeParser. The annotation it parses is described in annotation.md. Testing files are also included in this project, the files included are described below.
 
+## Functionality of Version 0.1 main  
+
+This first version of PPALMS simply takes in the name of a file of source code and prints out a parsed version of this file. This will allow for the easy creation of questions when implemented in later versions. 
+
 ## File Overview  
 This section described the overall file structure for this project.  
 The main folders:
