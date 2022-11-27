@@ -2,3 +2,5 @@
 ./.vscode
 ./ppalms
 ./tests
+./ppalms.exe
+./tests.exe
