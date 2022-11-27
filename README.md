@@ -1,7 +1,7 @@
-# PPALMS Software Version 0.0 
+# PPALMS Software Version 0.1
 
 ## Project Overiew  
-This is version 0.0 of the PPALMS proect. This covers the annotation parsing portion of this application using the classes ParsedCode, Parser and DefaultCodeParser. The annotation it parses is described in annotation.md. Testing files are also included in this project, the files included are described below.
+This is version 0.1 of the PPALMS proect. This covers the annotation parsing portion of this application using the classes ParsedCode, Parser and DefaultCodeParser. The annotation it parses is described in annotation.md. Testing files are also included in this project, the files included are described below.
 
 ## File Overview  
 This section described the overall file structure for this project.  
