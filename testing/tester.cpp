@@ -6,6 +6,7 @@ using namespace std;
 const string PASSED = "  TEST PASSED : ";
 const string FAILED = "X TEST FAILED : ";
 
+// Testing to equivanlence
 void test_equivalence(void *actual, void *expected, string type, string testName)
 {
     if (type == "string")
