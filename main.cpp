@@ -27,7 +27,7 @@ int main(){
     char yorn;
     cout << "Do you want to print the parsed code representation? (y/n): ";
     cin >> yorn;
-    if (yorn == 'y' or == 'Y'){
+    if (yorn == 'y' or yorn == 'Y'){
         code->print();
     }
     else {
