@@ -25,6 +25,11 @@ class Params {
   string intendedQuizType;
 
  public:
+
+  Params(){
+       sourceCode = new ParsedCode();
+  }
+
   /**
    * @brief Default Constructor, initializes all attributes to default values
    *

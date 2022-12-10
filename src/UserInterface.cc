@@ -8,8 +8,8 @@ using namespace std;
  *
  */
 UserInterface::UserInterface() {
-  //   ParsedCode* code;
-  //   this->params = new Params(0, "", code, "", "");
+    ParsedCode* code;
+    this->params = new Params();
 }
 
 /**
@@ -35,7 +35,7 @@ void UserInterface::getInput() {
   string questionType;
   string intendedLMS;
   string intendedQuizType;
-  ParsedCode* sourceCode;
+  ParsedCode* sourceCode = new ParsedCode();
   DefaultCodeParser parser;
   string fileName;
 
@@ -79,16 +79,16 @@ void UserInterface::getInput() {
   }
 
   // Creating the params object
-  Params* temp = new Params(numStudents, questionType, sourceCode, intendedLMS,
-                            intendedQuizType);
-  temp->print();
-  //   this->params = (Params*)temp;
+  // Params* temp = new Params(numStudents, questionType, sourceCode, intendedLMS,
+  //                           intendedQuizType);
+  // temp->print();
   //   this->setParams(temp);
-  //   this->params->setNumStudents(temp->getNumStudents());
-  //   this->params->setQuestionType(temp->getQuestionType());
-  //   this->params->setSourceCode(temp->getSourceCode());
-  //   this->params->setIntendedLMS(temp->getIntendedLMS());
-  //   this->params->setIntendedQuizType(temp->getIntendedQuizType());
+  this->params->setNumStudents(numStudents);
+  this->params->setQuestionType(questionType);
+  this->params->setSourceCode(sourceCode);
+  this->params->setIntendedLMS(intendedLMS);
+  this->params->setIntendedQuizType(intendedQuizType);
+
 }
 
 /**
