@@ -47,28 +47,27 @@ Then, run:
 _for now executes whatever is in main_
 
 This will run the program and request:
-Enter the number of students: 
-Enter the question type (MC [Multiple Choice] or FB [Fill in the Blank]): 
-Enter the intended LMS (canvas, blackboard, or moodle):
-Enter the intended quiz format (qti or gift):
-Enter the name of the file (stored in srcFiles directory) to be parsed:
+
+-Enter the number of students: 
+-Enter the question type (MC [Multiple Choice] or FB [Fill in the Blank]): 
+-Enter the intended LMS (canvas, blackboard, or moodle):
+-Enter the intended quiz format (qti or gift):
+-Enter the name of the file (stored in srcFiles directory) to be parsed:
 
 
 Answering all fields adequately will allow for a json file to be outputted. 
 The json file will have attributes:
 
-{
-"numStudents": number of variations to generate
-"questionType": Type of Question. Will be set to multiple choice.
-"intendedLMS": 3 options: canvas, moodle, blackboard
-"intendedQuizType": 2 options: .gift, .qti
+-"numStudents": number of variations to generate
+-"questionType": Type of Question. Will be set to multiple choice.
+-"intendedLMS": 3 options: canvas, moodle, blackboard
+-"intendedQuizType": 2 options: .gift, .qti
 
 Multiple Choice exclusive:
-"numChoices": number of choices
+-"numChoices": number of choices
 
 Fill in the blank exclusive:
-"blankLength": desired length of blank 
-}
+-"blankLength": desired length of blank 
 
 
 ## Run Tests
