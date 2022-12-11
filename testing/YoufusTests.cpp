@@ -126,7 +126,7 @@ void wrongOrderAnnotationTest()
     DefaultCodeParser parser;
     ParsedCode *code;
     // Test for annotation of wrong order
-    code = parser.ParseCode("srcFiles/wrongOrderAnnotation.cpp");
+    code = parser.ParseCode("wrongOrderAnnotation.cpp");
     vector<string> expect = {"//This is a test file for testing PPALMS Program\n#include <iostream>\nusing namespace std;\n\nint main(){\n", "    int x = 0;\n    int y = 0;\n", "    int z = x + y;\n", "    cout << z;\n", "    return z;\n}\n"};
     vector<string> actual = code->getLines();
 
@@ -139,7 +139,7 @@ void wrongFileType()
     DefaultCodeParser parser;
     ParsedCode *code;
     // Test for annotation of wrong file type
-    code = parser.ParseCode("srcFiles/wrongFileType.cpp");
+    code = parser.ParseCode("wrongFileType.cpp");
     vector<string> expect = {"# This is a test file for testing PPALMS Program\n\ndef main():\n", "    x = 0\n    y = 0\n", "    z = x + y\n", "    print(z)\n", "    return 0\n"};
 
     vector<string> actual = code->getLines();

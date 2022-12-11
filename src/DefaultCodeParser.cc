@@ -15,19 +15,21 @@ const string END_ENDBLOCK = "END}";
  * @param file a string representing the file name of the code to parse
  * @return ParsedCode* the populated ParsedCode object made from the file
  */
-ParsedCode* DefaultCodeParser::ParseCode(string file) {
+ParsedCode *DefaultCodeParser::ParseCode(string file)
+{
   // FOR DEBUGGING PURPOSE
   bool debug = false;
 
   // INITIALIZE
-  ParsedCode* returnedCode = new ParsedCode();
+  ParsedCode *returnedCode = new ParsedCode();
   fileName = file;
 
   // Verify file type is allowed
   string fileType = fileName.substr(fileName.find(".") + 1, fileName.length());
   if (fileType != "cpp" && fileType != "c" && fileType != "cc" &&
       fileType != "cs" && fileType != "h" && fileType != "java" &&
-      fileType != "py" && fileType != "js") {
+      fileType != "py" && fileType != "js")
+  {
     cout << fileType << endl;
     cout << "Error: Invalid file type" << endl;
     return NULL;
@@ -38,17 +40,21 @@ ParsedCode* DefaultCodeParser::ParseCode(string file) {
   // Find the needed commentSymbol for this file type
   if (fileType == "cpp" || fileType == "c" || fileType == "cc" ||
       fileType == "cs" || fileType == "h" || fileType == "java" ||
-      fileType == "js") {
+      fileType == "js")
+  {
     commentSymbol = "//";
-  } else if (fileType == "py") {
+  }
+  else if (fileType == "py")
+  {
     commentSymbol = "#";
   }
 
   // Open and verify file is open
   string path = "srcFiles/" + file;
-  cout << path << endl;
+  // cout << path << endl;
   srcCode.open(path);
-  if (!srcCode.is_open()) {
+  if (!srcCode.is_open())
+  {
     cout << "Error: File not found" << endl;
     return NULL;
   }
@@ -58,71 +64,92 @@ ParsedCode* DefaultCodeParser::ParseCode(string file) {
   string curTuple;
   bool inTuple = false;
   bool ignore = false;
-  while (getline(srcCode, curLine)) {
-    if (debug) cout << curLine << endl;
+  while (getline(srcCode, curLine))
+  {
+    if (debug)
+      cout << curLine << endl;
 
     // Figure out if this is a line for annotation
-    for (int i = 0; i < curLine.length(); i++) {
+    for (int i = 0; i < curLine.length(); i++)
+    {
       // if a tab or space is present ignore while no other chars are seen
-      if ((curLine[i] == 32 || curLine[i] == 9 || curLine[i] == 11)) {
+      if ((curLine[i] == 32 || curLine[i] == 9 || curLine[i] == 11))
+      {
         continue;
       }
       // first non-whitespace character seen
-      else {
+      else
+      {
         // Check if line is comment
-        if (curLine.find(commentSymbol) == i) {
+        if (curLine.find(commentSymbol) == i)
+        {
           i += 1 + commentSymbol.length();
           // Find if this comment follows the <comment_symbol> <annotation>
           // format {START
-          if (curLine.find(START_STARTBLOCK) == i) {
-            if (debug) cout << "BEGIN START BLOCK" << endl;
+          if (curLine.find(START_STARTBLOCK) == i)
+          {
+            if (debug)
+              cout << "BEGIN START BLOCK" << endl;
             inTuple = true;
             ignore = true;
           }
           // START}
-          else if (curLine.find(END_STARTBLOCK) == i) {
-            if (debug) cout << "END START BLOCK" << endl;
+          else if (curLine.find(END_STARTBLOCK) == i)
+          {
+            if (debug)
+              cout << "END START BLOCK" << endl;
             inTuple = false;
             ignore = true;
           }
           // {END
-          else if (curLine.find(START_ENDBLOCK) == i) {
-            if (debug) cout << "START END BLOCK" << endl;
+          else if (curLine.find(START_ENDBLOCK) == i)
+          {
+            if (debug)
+              cout << "START END BLOCK" << endl;
             inTuple = true;
             ignore = true;
           }
           // END}
-          else if (curLine.find(END_ENDBLOCK) == i) {
-            if (debug) cout << "END END BLOCK" << endl;
+          else if (curLine.find(END_ENDBLOCK) == i)
+          {
+            if (debug)
+              cout << "END END BLOCK" << endl;
             inTuple = false;
             ignore = true;
           }
           // {*
-          else if (curLine.find(START_TUPLE) == i) {
-            if (debug) cout << "START TUPLE BLOCK" << endl;
+          else if (curLine.find(START_TUPLE) == i)
+          {
+            if (debug)
+              cout << "START TUPLE BLOCK" << endl;
             inTuple = true;
             ignore = false;
           }
           // *}
-          else if (curLine.find(END_TUPLE) == i) {
-            if (debug) cout << "END TUPLEBLOCK" << endl;
+          else if (curLine.find(END_TUPLE) == i)
+          {
+            if (debug)
+              cout << "END TUPLEBLOCK" << endl;
             inTuple = false;
             ignore = false;
           }
           // Not an annotation line, regular comment
-          else {
+          else
+          {
             curTuple += curLine + '\n';
           }
           break;
         }
         // Not a comment
-        else {
+        else
+        {
           curTuple += curLine + '\n';
           break;
         }
       }
     }
-    if (!inTuple) {
+    if (!inTuple)
+    {
       returnedCode->AddCodeTuple(curTuple, ignore);
       curTuple = "";
       ignore = false;

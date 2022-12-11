@@ -1,39 +1,39 @@
-#ifndef FILLINBLANKSQUESTION_H
-#define FILLINBLANKSQUESTION_H
+// #ifndef FILLINBLANKSQUESTION_H
+// #define FILLINBLANKSQUESTION_H
 
-#include "Question.h"
+// #include "Question.h"
 
-using namespace std;
+// using namespace std;
 
-class FillInBlanksQuestion : Question {
- protected:
-  int lengthBlank;
-  int blankStart;
+// class FillInBlanksQuestion : Question {
+//  protected:
+//   int lengthBlank;
+//   int blankStart;
 
- public:
-  /**
-   * @brief get the length of the blank
-   *
-   */
-  int getLengthBlank();
+//  public:
+//   /**
+//    * @brief get the length of the blank
+//    *
+//    */
+//   int getLengthBlank();
 
-  /**
-   * @brief set the length of the blank
-   *
-   */
-  void setLengthBlank(int length);
+//   /**
+//    * @brief set the length of the blank
+//    *
+//    */
+//   void setLengthBlank(int length);
 
-  /**
-   * @brief get the index of the start of the blank
-   *
-   */
-  void getBlankStart();
+//   /**
+//    * @brief get the index of the start of the blank
+//    *
+//    */
+//   void getBlankStart();
 
-  /**
-   * @brief set the index of the start of the blank
-   *
-   */
-  void setBlankStart(int index);
-};
+//   /**
+//    * @brief set the index of the start of the blank
+//    *
+//    */
+//   void setBlankStart(int index);
+// };
 
-#endif
+// #endif

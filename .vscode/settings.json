@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "*.rmd": "markdown",
     "xstring": "cpp",
     "iostream": "cpp",
     "vector": "cpp",
@@ -60,7 +61,10 @@
     "xlocmes": "cpp",
     "xlocmon": "cpp",
     "xloctime": "cpp",
-    "xtree": "cpp"
+    "xtree": "cpp",
+    "mutex": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

@@ -8,4 +8,5 @@ void YXTests();
 
 void YYTests();
 
+void P5tests();
 #endif
