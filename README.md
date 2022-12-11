@@ -32,7 +32,7 @@ In order to run the code, g++ must be functioning on the machine this gets compi
 To run, first compile using g++ :
 
 ```
-g++ -o ppalms main.cpp include/ParsedCode.h include/DefaultCodeParser.h include/Parser.h include/Params.h include/UserInterface.h src/DefaultCodeParser.cc src/ParsedCode.cc src/Params.cc src/UserInterface.cc include/JSONGenerator.h src/JSONGenerator.cc src/FillInBlanksGenerator.cc include/FillInBlanksGenerator.h src/MCGenerator.cc include/MCGenerator.h
+g++ -o ppalms main.cpp include/ParsedCode.h include/DefaultCodeParser.h include/Parser.h include/Params.h include/UserInterface.h src/DefaultCodeParser.cc src/ParsedCode.cc src/Params.cc src/UserInterface.cc include/JSONGenerator.h src/JSONGenerator.cc src/FillInBlanksGenerator.cc include/FillInBlanksGenerator.h src/MCGenerator.cc include/MCGenerator.h include/Controller.h src/Controller.cc
 ```
 
 _must be in the 5801P4 dir to run such command_

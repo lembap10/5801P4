@@ -19,7 +19,13 @@ string JSONGenerator::createJSONFile(){
 
     infile << "{" << endl;
     for (int i = 0 ; i < jsonAttributes.size(); i++){
-        infile << "\"" << jsonAttributes[i][0] << "\": \"" << jsonAttributes[i][1] << "\","<< endl;
+        // for last element, don't add comma
+        if (i == jsonAttributes.size()-1){
+            infile << "\"" << jsonAttributes[i][0] << "\": \"" << jsonAttributes[i][1] << "\""<< endl;
+        }
+        else{
+            infile << "\"" << jsonAttributes[i][0] << "\": \"" << jsonAttributes[i][1] << "\","<< endl;
+        }
     }
     infile << "}" << endl;
     return fileName;

@@ -23,7 +23,7 @@ Params::Params(int numStudent, string questionType, ParsedCode* sourceCode,
  * @brief Destroy the Params:: Params object
  *
  */
-Params::~Params() { delete sourceCode; }
+Params::~Params() { /**delete sourceCode;**/ }
 
 /**
  * @brief sets the number of students

@@ -25,7 +25,10 @@ class Params {
   string intendedQuizType;
 
  public:
-
+  /**
+   * @brief Default Constructor
+   *
+   */
   Params(){
        sourceCode = new ParsedCode();
   }
@@ -43,7 +46,7 @@ class Params {
          string intendedLMS, string intendedQuizType);
 
   /**
-   * @brief Default Destructor, deletes sourceCode
+   * @brief Default Destructor
    *
    */
   ~Params();

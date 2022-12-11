@@ -1,5 +1,8 @@
 #include "../include/UserInterface.h"
-
+#include <iostream>  // std::cout
+#include <sstream>   // std::stringstream
+#include <string>    // std::string
+#include <limits>
 #include <cctype>
 using namespace std;
 
@@ -8,7 +11,6 @@ using namespace std;
  *
  */
 UserInterface::UserInterface() {
-    ParsedCode* code;
     this->params = new Params();
 }
 
@@ -43,12 +45,26 @@ void UserInterface::getInput() {
   cout << "Type in \"quit\" to quit anytime" << endl;
   cout << "Enter the number of students: ";
   cin >> numStudents;
+  // error checking
+  while (cin.fail() || numStudents <= 0){
+    cout << "Invalid, please enter a valid number." << endl;
+    // clears failure state
+    cin.clear();
+    // ignores bad output 
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    cin >> numStudents;
+     }
+
   cout << "Enter the question type (MC [Multiple Choice] or FB [Fill in the "
           "Blank]): ";
   cin >> questionType;
   while (questionType != "mc" && questionType != "fb" && questionType != "MC" &&
          questionType != "FB" && questionType != "quit") {
     cout << "Invalid question type, please enter MC or FB: ";
+    // clears failure state
+    cin.clear();
+    // ignores bad output 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     cin >> questionType;
   }
   cout << "Enter the intended LMS (canvas, blackboard, or moodle): ";
@@ -58,6 +74,10 @@ void UserInterface::getInput() {
          intendedLMS != "Blackboard" && intendedLMS != "Moodle" &&
          intendedLMS != "quit") {
     cout << "Invalid LMS, please enter Canvas, Blackboard, or Moodle: ";
+    // clears failure state
+    cin.clear();
+    // ignores bad output 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     cin >> intendedLMS;
   }
   cout << "Enter the intended quiz format (qti or gift): ";
@@ -66,6 +86,10 @@ void UserInterface::getInput() {
          intendedQuizType != "QTI" && intendedQuizType != "GIFT" &&
          intendedQuizType != "quit") {
     cout << "Invalid quiz format, please enter qti for gift: ";
+    // clears failure state
+    cin.clear();
+    // ignores bad output 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     cin >> intendedQuizType;
   }
   cout << "Enter the name of the file (stored in srcFiles directory) to be "
@@ -74,6 +98,10 @@ void UserInterface::getInput() {
   sourceCode = parser.ParseCode(fileName);
   while (sourceCode == NULL && fileName != "quit") {
     cout << "Invalid file name, please enter a valid file name: ";
+    // clears failure state
+    cin.clear();
+    // ignores bad output 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     cin >> fileName;
     sourceCode = parser.ParseCode(fileName);
   }

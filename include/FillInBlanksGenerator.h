@@ -9,18 +9,36 @@ class FillInBlanksGenerator: public JSONGenerator {
     protected:
         int blankLength;
     public:
-        FillInBlanksGenerator(Params* param) : JSONGenerator(param){
-
+     /**
+   * @brief constructor for fill in blanks json generator
+   *
+   */
+        FillInBlanksGenerator(Params* param, int blankLength) : JSONGenerator(param){
+            this->setBlankLength(blankLength);
         }
 
+ /**
+   * @brief populates additional attributes such as blankLength
+   *
+   */
         void PopulateAttributes();
 
+ /**
+   * @brief getter for length
+   * @return blankLength
+   *
+   */
         int getBlankLength(){
             return blankLength;
         }
+ /**
+   * @brief setter for length
+   * @param length
+   *
+   */
 
         void setBlankLength(int length){
-            blankLength = length;
+            this->blankLength = length;
         }
 
         ~FillInBlanksGenerator(){
