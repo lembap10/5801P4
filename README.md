@@ -74,9 +74,10 @@ Fill in the blank exclusive:
 
 ```
 g++ -o tests testing/* include/* src/*
+./tests
 ```
 
-*Youfu
+This will run the set of tests that have been made and which are described in the PPALMS Test Case Report document.
 
 ### Conditions to parse code
 
