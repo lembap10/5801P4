@@ -23,7 +23,7 @@ class Controller {
    *
    */
     Controller(){
-        this->ui = new UserInterface;
+        this->ui = new UserInterface();
     }
 
    /**

@@ -8,7 +8,8 @@ void Controller::CreateFile(){
   this->ui->getInput();
 
   // obtain user parameters
-  Params* params = this->ui->getParams();
+  Params* params;
+  params = this->ui->getParams(); 
   JSONGenerator* gen = nullptr;
 
   // add additional parameters specified for multiple choice and fill in blank
@@ -25,6 +26,7 @@ void Controller::CreateFile(){
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
         cin >> input;
      }
+     
      gen = new MCGenerator (params, input);
   }
   else{

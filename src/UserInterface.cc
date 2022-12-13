@@ -37,8 +37,7 @@ void UserInterface::getInput() {
   string questionType;
   string intendedLMS;
   string intendedQuizType;
-  ParsedCode* sourceCode = new ParsedCode();
-  DefaultCodeParser parser;
+  DefaultCodeParser* parser = new DefaultCodeParser();
   string fileName;
 
   // Prompting the user for the parameters
@@ -95,15 +94,15 @@ void UserInterface::getInput() {
   cout << "Enter the name of the file (stored in srcFiles directory) to be "
           "parsed: ";
   cin >> fileName;
-  sourceCode = parser.ParseCode(fileName);
-  while (sourceCode == NULL && fileName != "quit") {
+  this->params->setSourceCode(parser->ParseCode(fileName));
+  while (params->getSourceCode() == NULL && fileName != "quit") {
     cout << "Invalid file name, please enter a valid file name: ";
     // clears failure state
     cin.clear();
     // ignores bad output 
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     cin >> fileName;
-    sourceCode = parser.ParseCode(fileName);
+    this->params->setSourceCode(parser->ParseCode(fileName));
   }
 
   // Creating the params object
@@ -111,16 +110,17 @@ void UserInterface::getInput() {
   //                           intendedQuizType);
   // temp->print();
   //   this->setParams(temp);
-  this->params->setNumStudents(numStudents);
-  this->params->setQuestionType(questionType);
-  this->params->setSourceCode(sourceCode);
-  this->params->setIntendedLMS(intendedLMS);
-  this->params->setIntendedQuizType(intendedQuizType);
 
+  params->setNumStudents(numStudents);
+  params->setQuestionType(questionType);
+  params->setIntendedLMS(intendedLMS);
+  params->setIntendedQuizType(intendedQuizType);
 }
 
 /**
  * @brief return the params object
  *
  */
-Params* UserInterface::getParams() { return this->params; }
+Params* UserInterface::getParams() { 
+  return this->params; 
+}

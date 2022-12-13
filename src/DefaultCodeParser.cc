@@ -136,14 +136,14 @@ ParsedCode *DefaultCodeParser::ParseCode(string file)
           // Not an annotation line, regular comment
           else
           {
-            curTuple += curLine + '\n';
+            curTuple += curLine + "\\n";
           }
           break;
         }
         // Not a comment
         else
         {
-          curTuple += curLine + '\n';
+          curTuple += curLine + "\\n";
           break;
         }
       }

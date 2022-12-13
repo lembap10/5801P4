@@ -81,3 +81,34 @@ void ParsedCode::print(){
         cout << lines[i] << endl;
     }
 }
+
+// Returns a representation of the code which can be easily added to a 
+string ParsedCode::stringRep(){
+    string ret = "[\n";
+    for (int i = 0 ; i < lines.size(); i++){
+        ret += ("\t\t\"" + lines[i] + "\\n");
+        if (i != numLines-1)
+            ret += "\",\n";
+        else 
+            ret += "\"";
+    }
+    ret += "],";
+    return ret;
+}
+
+// Returns array of true or false values
+string ParsedCode::stringIgn(){
+    string ret = "[";
+    for (int i = 0 ; i < ignored.size(); i++){
+        if (ignored[i])
+            ret += ("\"1");
+        else 
+            ret += ("\"0");
+        if (i != numLines-1)
+            ret += "\",";
+        else 
+            ret += "\"";
+    }
+    ret += "],";
+    return ret;
+}

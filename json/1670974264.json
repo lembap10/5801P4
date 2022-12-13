@@ -1,0 +1,14 @@
+{
+	"numStudents": "67",
+	"questionType": "FB",
+	"intendedLMS": "blackboard",
+	"intendedQuizType": "qti",
+	"code": [
+		"# This is a test file for testing PPALMS Program\ndef main():\n\n",
+		"    x = 0\n    y = 0\n\n",
+		"    z = x + y\n\n",
+		"    print(z)\n\n",
+		"    return 0\n\n"],
+	"ignoreLines": ["1","0","0","0","1"],
+	"blankLength": "5"
+}

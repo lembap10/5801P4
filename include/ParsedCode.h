@@ -57,6 +57,19 @@ class ParsedCode{
          * prints out all information to verify the parsed code
          */
         void print();
+
+        /**
+         * @brief gives a string which can be easily added to a json file as the lines of code
+         * @return string representation of the lines of code
+         */
+        string stringRep();
+
+        /**
+         * @brief gives an integer which represents which lines to ignore
+         * @return string 
+         */
+        string stringIgn();
+
         // OVERLOADED OPERATOR TO TEST EQUIVALENCE
         // for testing purposes only
         bool operator== (ParsedCode code){

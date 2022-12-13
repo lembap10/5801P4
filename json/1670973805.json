@@ -1,0 +1,14 @@
+{
+	"numStudents": "400",
+	"questionType": "MC",
+	"intendedLMS": "canvas",
+	"intendedQuizType": "qti",
+	"code": [
+		"// This is a test file for testing PPALMS Program\n#include <stdio.h>\nint main() {\n\n",
+		"  int x = 0;\n  int y = 0;\n\n",
+		"  int z = x + y;\n\n",
+		"  printf("%d", z);\n\n",
+		"  return z;\n}\n\n"],
+	"ign": ["1","0","0","0","1"],
+	"numChoices": "4"
+}

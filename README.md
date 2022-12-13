@@ -62,6 +62,8 @@ The json file will have attributes:
 - "questionType": Type of Question. Will be set to multiple choice.
 - "intendedLMS": 3 options: canvas, moodle, blackboard
 - "intendedQuizType": 2 options: .gift, .qti
+- "code": each tuple of lines of code, in jsonArray format
+- "ignoreLines" : an array of 1s and 0s to show which lines to ignore (1 = ignore, 0 = do not ignore)
 
 Multiple Choice exclusive:
 - "numChoices": number of choices
