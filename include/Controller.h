@@ -19,7 +19,7 @@ class Controller {
 
  public:
   /**
-   * @brief get the length of the blank
+   * @brief constructor for controller
    *
    */
     Controller(){

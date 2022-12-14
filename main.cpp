@@ -14,6 +14,9 @@ int main() {
   // call controller and exit
   // one time program
   Controller controller;
+
+  // access controller's createfile function
   controller.CreateFile();
+  
   return 0;
 }
